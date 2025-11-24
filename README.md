@@ -1,90 +1,106 @@
-﻿# GStreamerSharpPlayer
-C# WinForms ile geliştirilmiş basit ama genişletilebilir bir GStreamer medya oynatıcı.
+# 🎬 GStreamerSharpPlayer
 
-Bu proje, kullanıcıların kendi GStreamer pipeline’larını elle girip,
-Play/Stop kontrolü üzerinden çalıştırmasını ve video çıktısını WinForms paneline render etmesini sağlar.
+C# WinForms ile geliştirilmiş basit ama genişletilebilir bir **GStreamer medya oynatıcı**.
+
+Bu proje, kullanıcıların kendi GStreamer pipeline’larını **elle girip**,  
+Play/Stop kontrolü üzerinden çalıştırmasını ve video çıktısını WinForms paneline **render etmesini** sağlar.
 
 Tamamen eğitim, prototip geliştirme, RTSP/UDP/WebRTC testleri ve GStreamer öğrenimi için tasarlanmış minimalist bir örnek uygulamadır.
 
-﻿✨ Özellikler
+---
 
-✔️ C# (.NET Framework) üzerinde GStreamer kullanımı
+## ✨ Özellikler
 
-✔️ Kullanıcı tarafından girilen pipeline string’ini çalıştırma
+- ✔️ C# (.NET Framework) üzerinde GStreamer kullanımı  
+- ✔️ Kullanıcı tarafından girilen pipeline string’ini çalıştırma  
+- ✔️ Video çıkışının WinForms paneline yönlendirilmesi  
+- ✔️ Play / Stop kontrol butonları  
+- ✔️ GStreamer’ın **VideoOverlay API** ile pencere içine video çizme  
+- ✔️ Eski pipeline’ın düzgün şekilde Dispose edilmesi  
+- ✔️ Basit, anlaşılır mimari  
+- ✔️ GStreamer’ı C# tarafında öğrenmek için ideal örnek proje  
 
-✔️ Video çıkışının WinForms paneline yönlendirilmesi
+---
 
-✔️ Play / Stop kontrol butonları
+## 🛠️ Kullanılan Teknolojiler
 
-✔️ GStreamer’ın VideoOverlay API’si ile pencere içine video çizme
+- **C# – WinForms (.NET Framework)**
+- **GStreamer (GstSharp binding)**
+- **VideoOverlayAdapter**
+- **Visual Studio 2022**
 
-✔️ Eski pipeline’ın düzgün şekilde Dispose edilmesi
+---
 
-✔️ Basit, anlaşılır mimari
+## 📦 Kurulum
 
-✔️ GStreamer’ı C# tarafında öğrenmek isteyenler için örnek proje
-
-🛠️ Kullanılan Teknolojiler
-
-C# – WinForms (.NET Framework)
-
-GStreamer (GstSharp binding)
-
-VideoOverlayAdapter (GStreamer video çıkışını panele çizmek için)
-
-Visual Studio 2022
-
-📦 Kurulum
-1) GStreamer Kurulumu
-
-GStreamer’ın "Complete" sürümünü indirip kurmanız gerekir:
+### 1️⃣ GStreamer Kurulumu  
+GStreamer’ın *Complete* sürümünü indirip kurun:
 
 👉 https://gstreamer.freedesktop.org/download/
 
-Kurulum sonrası şu klasörlerin PATH'e eklendiğinden emin olun:
+PATH değişkenine şu klasör ekli olmalı:
 
+```
 C:\gstreamer\1.0\msvc_x86_64\bin
+```
 
-2) NuGet Üzerinden GstSharp Kurulumu
+---
 
-Visual Studio’dan:
+### 2️⃣ NuGet Üzerinden GstSharp Kurulumu
 
+```
 Tools → NuGet Package Manager → Manage NuGet Packages
+```
 
+`GstSharp` paketini yükleyin.
 
-GstSharp paketini ekleyin.
+---
 
-▶️ Çalıştırma
+## ▶️ Çalıştırma
 
-Pipeline’ı textbox’a yazın; örneğin:
+Pipeline’ı textbox’a yazın, örneğin:
 
+```
 videotestsrc ! videoconvert ! d3dvideosink
+```
 
+**Play** butonuna basın.  
+Video siyah panel üzerinde oynar.
 
-Ardından Play butonuna basın.
+**Stop** ile pipeline sonlandırılır.
 
-Video, formdaki siyah panel içine render edilir.
+---
 
-Durmak için Stop butonuna basabilirsiniz.
+## 📘 Örnek Pipeline'lar
 
-📘 Örnek Pipeline'lar
-Test pattern:
+### ✔️ Test pattern
+```
 videotestsrc ! videoconvert ! d3dvideosink
+```
 
-Kamera yayını:
+### ✔️ Kamera yayını
+```
 ksvideosrc ! videoconvert ! d3dvideosink
+```
 
-🧩 Projenin Amacı
+---
 
-Bu proje, GStreamer'ı .NET ortamında nasıl entegre edeceğimi öğrenmek ve ileride oluşturacağım daha gelişmiş medya uygulamalarına temel oluşturmak için yazıldı.
+## 🧩 Projenin Amacı
 
-Amaçlarım:
+Bu proje, GStreamer'ı .NET ortamında nasıl entegre edeceğimi öğrenmek  
+ve ileride oluşturacağım medya uygulamalarına temel oluşturmak için yazıldı.
 
-GStreamer pipeline mantığını WinForms üzerinden kontrol edebilmek
+Amaçlar:
 
-VideoOverlay API'sini C#’ta doğru şekilde kullanmak
+- GStreamer pipeline mantığını WinForms üzerinden kontrol etmek  
+- VideoOverlay API'sini C# tarafında doğru şekilde kullanmak  
 
-🚀 Sonuç
+---
 
-GStreamerSharpPlayer, GStreamer + C# entegrasyonunu öğrenmek isteyen herkes için basit, anlaşılır ve genişletilebilir bir örnek uygulamadır.
-RTSP/UDP/WebRTC projelerinde başlangıç noktası olarak rahatlıkla kullanılabilir.
+## 🚀 Sonuç
+
+**GStreamerSharpPlayer**, GStreamer + C# entegrasyonunu öğrenmek isteyen herkes için  
+basit, anlaşılır ve genişletilebilir bir örnek projedir.
+
+RTSP / UDP / WebRTC gibi medya projelerinde başlangıç noktası olarak rahatlıkla kullanılabilir.
+
